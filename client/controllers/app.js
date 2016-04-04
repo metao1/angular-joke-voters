@@ -2,19 +2,19 @@ var angularModule = angular.module("VoterApp", []);
 angularModule.factory("VoteService", function ($http) {
     return {
         vote: function (query) {
-            return $http.post("http://localhost:81/vote", query);
+            return $http.post("http://jokevoters.herokuapp.com:5001/vote", query);
         },
         allVotes: function () {
-            return $http.get("http://localhost:81/allvotes");
+            return $http.get("http://jokevoters.herokuapp.com:5001/allvotes");
         },
         voteUp: function (q) {
-            return $http.post("http://localhost:81/voteup", q);
+            return $http.post("http://jokevoters.herokuapp.com:5001/voteup", q);
         },
         voteDown: function (q) {
-            return $http.post("http://localhost:81/votedown", q);
+            return $http.post("http://jokevoters.herokuapp.com:5001/votedown", q);
         },
         comment: function (q) {
-            return $http.post("http://localhost:81/comment", q);
+            return $http.post("http://jokevoters.herokuapp.com:5001/comment", q);
         }
     };
 });
