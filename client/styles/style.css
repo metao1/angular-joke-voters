@@ -311,7 +311,7 @@ input[type=checkbox].w3-check:disabled+.w3-validate,input[type=radio].w3-radio:d
 .w3-opacity,.w3-hover-opacity:hover{opacity:0.60}.w3-text-shadow{text-shadow:1px 1px 0 #444}.w3-text-shadow-white{text-shadow:1px 1px 0 #ddd}
 .w3-scroll {
     margin: 10px;
-    width: 350px;
+    width: 85%;
     height: 250px;
     overflow: auto;
 }

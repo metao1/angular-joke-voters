@@ -7,9 +7,9 @@ var app = express();
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 /*
-var port = 5000;
-var api_port = 5001;
-*/
+ var port = 5000;
+ var api_port = 5001;
+ */
 app.set('port', (process.env.PORT || 5000));
 
 var data = [{
@@ -27,8 +27,8 @@ var data = [{
     "Idea": "Raise your right hand if you like the French ... raise both hands if you are French.",
     "comments": [{"value": "Great!"}, {"value": ":))"}],
     "show": false,
-    "average": 20,
-    "VoteUp": {"value": 24, "disabled": false},
+    "average": 21,
+    "VoteUp": {"value": 25, "disabled": false},
     "VoteDown": {"value": 4, "disabled": false}
 }, {
     "id": "2",
@@ -36,9 +36,62 @@ var data = [{
     "Idea": "Is it true that American skyscrapers are the tallest in the world?We’re answering: “Yes, it's true, but on the other hand the Soviet-made transistors are the largest in the world.”",
     "comments": [{"value": "yes!"}, {"value": "hahahaha"}, {"value": "lol"}],
     "show": false,
-    "average": 13,
-    "VoteUp": {"value": 9, "disabled": false},
+    "average": 7,
+    "VoteUp": {"value": 11, "disabled": false},
     "VoteDown": {"value": 4, "disabled": false}
+}, {
+    "id": 3,
+    "DisplayName": "زیبا",
+    "Idea": "مورد داشتیم دختره رفته تو گوگل سرچ کرده : اسم اون پسری که نزدیک مدرسه مون مغازه داره چیه؟!! گوگل جواب داده برو درستو بخون دو شنبه امتحان فارسی داری!",
+    "comments": [],
+    "show": false,
+    "VoteUp": {"value": 0, "disabled": false},
+    "VoteDown": {"value": 0, "disabled": false}
+}, {
+    "id": 4,
+    "DisplayName": "ziba",
+    "Idea": "یخچال خونمون موقع روشن شدن جوری صدا میده انگار یخای قطب شمال کار اینه ! حالا درشو باز میکنی پشه ها توش دارن آفتاب میگیرن !",
+    "comments": [{"value": "یخچال شما چند؟"}],
+    "show": false,
+    "VoteUp": {"value": 2, "disabled": false},
+    "VoteDown": {"value": 0, "disabled": false},
+    "average": 2
+}, {
+    "id": 5,
+    "DisplayName": "مهدی",
+    "Idea": "بابای من هر چند وقت یبار همینجوری وقتی همه نشستن یهو به یکی میگه یه لیوان آب بیار که ببینه هنوزم تو خونه حساب میبریم ازش یا نه",
+    "comments": [{"value": "حقته خخخخخ"}],
+    "show": false,
+    "VoteUp": {"value": 1, "disabled": false},
+    "VoteDown": {"value": 0, "disabled": false},
+    "average": 1
+}, {
+    "id": 6,
+    "DisplayName": "Geek",
+    "Idea": "A computer once beat me at chess, but it was no match for me at kick boxing.",
+    "comments": [],
+    "show": false,
+    "VoteUp": {"value": 1, "disabled": false},
+    "VoteDown": {"value": 0, "disabled": false},
+    "average": 1
+}, {
+    "id": 7,
+    "DisplayName": "Geek",
+    "Idea": "A client called my help desk saying she couldn’t send an e-mail. When I was done troubleshooting the problem, she interrupted me to ask, “Wait a minute, do I type @ in lower or uppercase?”",
+    "comments": [{"value": "dasdas"}],
+    "show": false,
+    "VoteUp": {"value": 0, "disabled": false},
+    "VoteDown": {"value": 1, "disabled": false},
+    "average": -1
+}, {
+    "id": 8,
+    "DisplayName": "Geek",
+    "Idea": "A company owner was asked a question, \"How do you motivate your employees to be so punctual?\"   He smiled & replied, \"It's simple. I have 30 employees and 29 free parking spaces. One is paid parking.\"",
+    "comments": [],
+    "show": false,
+    "VoteUp": {"value": 1, "disabled": false},
+    "VoteDown": {"value": 0, "disabled": false},
+    "average": 1
 }];
 app.use(express.static(path.join(__dirname, 'client')));
 var http_server = http.Server(app);
@@ -113,7 +166,7 @@ app.post('/comment', function (req, res) {
     var json = JSON.stringify(data[id]);
     res.status(200).send(json);
 });
-http_server.listen(app.get('port'), function() {
+http_server.listen(app.get('port'), function () {
     console.log('App is running on port', app.get('port'));
 });
 
