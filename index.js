@@ -6,8 +6,11 @@ var http = require('http');
 var app = express();
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
+/*
 var port = 5000;
 var api_port = 5001;
+*/
+app.set('port', (process.env.PORT || 5000));
 
 var data = [{
     "id": "0",
@@ -39,7 +42,6 @@ var data = [{
 }];
 app.use(express.static(path.join(__dirname, 'client')));
 var http_server = http.Server(app);
-http_server.listen(port);
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -111,6 +113,10 @@ app.post('/comment', function (req, res) {
     var json = JSON.stringify(data[id]);
     res.status(200).send(json);
 });
+http_server.listen(app.get('port'), function() {
+    console.log('App is running on port', app.get('port'));
+});
+
 /*
 
  var apiServer = http.createServer(function (req, res) {
