@@ -2,7 +2,7 @@
 
 follow the tutorial at : [blog](http://angulartutorials.blogspot.com)
 
-DEMO available at :  [blog](http://jokevoters.herokuapp.com)
+DEMO available at :  [demo](https://jokevoter.herokuapp.com/)
 ```
 npm install
 node server
