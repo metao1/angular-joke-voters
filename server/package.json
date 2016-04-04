@@ -1,0 +1,26 @@
+{
+  "name": "IdeaVoter",
+  "version": "0.0.0",
+  "description": "A voter API to vote for ideas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "htps://github.com/metao1/nodejs-idea-voter.git"
+  },
+  "keywords": [
+    "nodejs",
+    "node",
+    "idea",
+    "voter",
+    "angular",
+    "angularjs"
+  ],
+  "author": "Mehrdad A.karami",
+  "license": "MIT",
+  "dependencies": {
+    "pg": "^4.5.2"
+  }
+}
