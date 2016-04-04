@@ -2,19 +2,19 @@ var angularModule = angular.module("VoterApp", []);
 angularModule.factory("VoteService", function ($http) {
     return {
         vote: function (query) {
-            return $http.post("http://jokevoters.herokuapp.com:5001/vote", query);
+            return $http.post("/vote", query);
         },
         allVotes: function () {
-            return $http.get("http://jokevoters.herokuapp.com:5001/allvotes");
+            return $http.get("/allvotes");
         },
         voteUp: function (q) {
-            return $http.post("http://jokevoters.herokuapp.com:5001/voteup", q);
+            return $http.post("/voteup", q);
         },
         voteDown: function (q) {
-            return $http.post("http://jokevoters.herokuapp.com:5001/votedown", q);
+            return $http.post("/votedown", q);
         },
         comment: function (q) {
-            return $http.post("http://jokevoters.herokuapp.com:5001/comment", q);
+            return $http.post("/comment", q);
         }
     };
 });
@@ -58,7 +58,6 @@ angularModule.controller("VoterController", function ($scope, $timeout, VoteServ
             Idea: $scope.mindValue
         };
         VoteService.vote(data).success(function (res) {
-            console.log(res);
             ideaArray.push(res);
         });
         $scope.nameValue = "";
@@ -67,10 +66,8 @@ angularModule.controller("VoterController", function ($scope, $timeout, VoteServ
 
     $scope.voteClick = function (id, value) {
         if (value > 0) {
-            console.log(id);
-            VoteService.voteUp(id).success(function (data) {
+            VoteService.voteUp({id: id}).success(function (data) {
                 ideaArray[id].VoteUp.value = data.VoteUp.value;
-                ideaArray[id].VoteUp.VoteDown = data.VoteDown.value;
                 ideaArray[id].average = data.average;
                 ideaArray[id].VoteDown.disabled = true;
                 ideaArray[id].VoteUp.disabled = true;
@@ -79,9 +76,8 @@ angularModule.controller("VoterController", function ($scope, $timeout, VoteServ
                 $timeout(caller, 4000);
             });
         } else {
-            VoteService.voteDown(id).success(function (data) {
-                ideaArray[id].VoteUp.value = data.VoteUp.value;
-                ideaArray[id].VoteUp.VoteDown = data.VoteDown.value;
+            VoteService.voteDown({id: id}).success(function (data) {
+                ideaArray[id].VoteDown.value = data.VoteDown.value;
                 ideaArray[id].average = data.average;
                 ideaArray[id].VoteDown.disabled = true;
                 ideaArray[id].VoteUp.disabled = true;
