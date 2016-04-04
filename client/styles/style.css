@@ -309,3 +309,9 @@ input[type=checkbox].w3-check:disabled+.w3-validate,input[type=radio].w3-radio:d
 .w3-text-light-grey{color:#f1f1f1 !important}.w3-light-grey,.w3-hover-light-grey:hover{color:#000 !important;background-color:#f1f1f1 !important}
 .w3-text-dark-grey{color:#3a3a3a !important}.w3-dark-grey,.w3-hover-dark-grey:hover{color:#fff !important;background-color:#616161 !important}
 .w3-opacity,.w3-hover-opacity:hover{opacity:0.60}.w3-text-shadow{text-shadow:1px 1px 0 #444}.w3-text-shadow-white{text-shadow:1px 1px 0 #ddd}
+.w3-scroll {
+    margin: 10px;
+    width: 350px;
+    height: 250px;
+    overflow: auto;
+}

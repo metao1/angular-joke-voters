@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="VoterApp">
+<html ng-app="VoterApp" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Angular Joke Voters</title>
     <link rel="stylesheet" href="styles/style.css">
@@ -53,9 +53,11 @@
                 </header>
                 <div class="w3-container">
                     <img src="images/img_avatar3.png" alt="Avatar" class="w3-left w3-circle"
-                         style="height: 20%;width: 20%">
+                         style="height: 20%;width: 20%;margin-bottom: -49px;z-index: 90;">
                     <hr>
-                    <p class="w3-xlarge w3-amber w3-hover-orange">{{item.Idea}}</p>
+                    <p class="w3-xlarge w3-hover-orange w3-scroll w3-padding-32" style="z-index: 30;">
+                        {{item.Idea}}
+                    </p>
                     <hr>
                 </div>
                 <div class="w3-container w3-pink w3-show-block w3-left-align">
